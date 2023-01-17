@@ -1,15 +1,21 @@
-import Home from "../containers/Home";
+import { Navigate } from "react-router-dom";
+import Container from "../containers/Container";
 import Auth from "../containers/Auth";
 import Login from "../components/Login";
-import { Navigate } from "react-router-dom";
+import Home from "../pages/Home";
+import Flow from "../pages/Flow";
 
 export const privateRoutes = [
   {
-    element: <Home />,
+    element: <Container />,
     children: [
       {
         path: "/",
         element: <Home />,
+      },
+      {
+        path: "/flow/:idFlow",
+        element: <Flow />,
       },
     ],
   },
