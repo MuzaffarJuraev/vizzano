@@ -1,3 +1,4 @@
+import { Input } from "antd";
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
@@ -22,22 +23,19 @@ Wrapper.Avatar = styled.div`
 `;
 Wrapper.Form = styled.div`
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  grid-gap: 20px;
+`;
+Wrapper.InputWrapper = styled.div`
+  display: flex;
+  grid-gap: 20px;
+  align-items: center;
 `;
 Wrapper.FormLabel = styled.label`
-  display: block;
   margin-top: 15px;
 `;
-Wrapper.FormInput = styled.input`
-  width: 100%;
-  height: 40px;
-  font-size: 20px;
-  border: 1px solid grey;
-  background-color: gold;
-  border-radius: 5px;
-
-  &:focus {
-    outline: none;
-  }
-`;
+Wrapper.Input = styled(Input)``;
+Wrapper.InputPassword = styled(Input.Password)``;
 
 Wrapper.VersionCont = styled.p``;

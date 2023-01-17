@@ -36,7 +36,6 @@ const Login = () => {
   };
 
   const handleKeyDown = (e) => {
-    console.log(e);
     if (e.key === "Enter") {
       onAuth();
     }
@@ -52,36 +51,42 @@ const Login = () => {
       return;
     }
     setLoading(true);
-    axios({
-      method: "POST",
-      url: `${process.env.REACT_APP_BASE_URL}/user/login`,
-      data: userInfo,
-    })
-      .then((res) => {
-        setLoading(false);
-        dispatch(setToken({ token: res.data.data.token }));
-        localStorage.setItem("token", res.data.data.token);
-        navigate("/");
-      })
-      .catch((error) => {
-        setLoading(false);
-        handleWarningAnimation();
-        if (error.request.status >= 500) {
-          customNotification({
-            type: "error",
-            message: "ERROR",
-            placement: "topRight",
-            description: "Server is not working!",
-          });
-        } else {
-          customNotification({
-            type: "error",
-            message: "ERROR",
-            placement: "topRight",
-            description: error.response.data.extraMessage,
-          });
-        }
-      });
+    setLoading(false);
+    dispatch(setToken({ token: "token" }));
+    localStorage.setItem("token", "token");
+    localStorage.setItem("fullName", "admin");
+    navigate("/");
+    // axios({
+    //   method: "POST",
+    //   url: `${process.env.REACT_APP_BASE_URL}/user/login`,
+    //   data: userInfo,
+    // })
+    //   .then((res) => {
+    //     setLoading(false);
+    //     dispatch(setToken({ token: res.data.data.token }));
+    //     localStorage.setItem("token", res.data.data.token);
+    //     localStorage.setItem("fullName", res.data.data.user.fullName);
+    //     navigate("/");
+    //   })
+    //   .catch((error) => {
+    //     setLoading(false);
+    //     handleWarningAnimation();
+    //     if (error.request.status >= 500) {
+    //       customNotification({
+    //         type: "error",
+    //         message: "ERROR",
+    //         placement: "topRight",
+    //         description: "Server is not working!",
+    //       });
+    //     } else {
+    //       customNotification({
+    //         type: "error",
+    //         message: "ERROR",
+    //         placement: "topRight",
+    //         description: error.response.data.extraMessage,
+    //       });
+    //     }
+    //   });
   };
 
   return (

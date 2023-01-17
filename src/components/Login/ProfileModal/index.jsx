@@ -14,10 +14,14 @@ const ProfileModal = ({ open, title, onCancel }) => {
       <Wrapper>
         <Wrapper.Avatar>M</Wrapper.Avatar>
         <Wrapper.Form>
-          <Wrapper.FormLabel>Name:</Wrapper.FormLabel>
-          <Wrapper.FormInput />
-          <Wrapper.FormLabel>Surname:</Wrapper.FormLabel>
-          <Wrapper.FormInput />
+          <Wrapper.InputWrapper>
+            <Wrapper.FormLabel>username:</Wrapper.FormLabel>
+            <Wrapper.Input disabled value={localStorage.getItem("fullName")} />
+          </Wrapper.InputWrapper>
+          <Wrapper.InputWrapper>
+            <Wrapper.FormLabel>password:</Wrapper.FormLabel>
+            <Wrapper.InputPassword disabled />
+          </Wrapper.InputWrapper>
         </Wrapper.Form>
         <Wrapper.VersionCont>Vizzano 0.0.1 version</Wrapper.VersionCont>
       </Wrapper>
