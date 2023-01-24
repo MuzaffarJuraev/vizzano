@@ -4,6 +4,7 @@ import Auth from "../containers/Auth";
 import Login from "../components/Login";
 import Home from "../pages/Home";
 import Flow from "../pages/Flow";
+import FlowSection from "../pages/FlowSection";
 
 export const privateRoutes = [
   {
@@ -16,6 +17,10 @@ export const privateRoutes = [
       {
         path: "/flow/:idFlow",
         element: <Flow />,
+      },
+      {
+        path: "/flow/:idFlow/:flowSection/:prefixTime",
+        element: <FlowSection />,
       },
     ],
   },
