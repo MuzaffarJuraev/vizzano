@@ -66,6 +66,7 @@ const Login = () => {
       .catch((error) => {
         setLoading(false);
         handleWarningAnimation();
+        console.log(error);
         if (error.request.status >= 500) {
           customNotification({
             type: "error",
@@ -78,7 +79,7 @@ const Login = () => {
             type: "error",
             message: "ERROR",
             placement: "topRight",
-            description: error.response.data.extraMessage,
+            description: error.message,
           });
         }
       });

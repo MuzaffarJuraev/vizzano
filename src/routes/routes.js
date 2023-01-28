@@ -5,6 +5,8 @@ import Login from "../components/Login";
 import Home from "../pages/Home";
 import Flow from "../pages/Flow";
 import FlowSection from "../pages/FlowSection";
+import Report from "../pages/Report";
+import Store from "../pages/Store";
 
 export const privateRoutes = [
   {
@@ -19,8 +21,16 @@ export const privateRoutes = [
         element: <Flow />,
       },
       {
-        path: "/flow/:idFlow/:flowSection/:prefixTime",
+        path: "/flow/:idFlow/:typeFlow/:prefixTime",
         element: <FlowSection />,
+      },
+      {
+        path: "/report",
+        element: <Report />,
+      },
+      {
+        path: "/store",
+        element: <Store />,
       },
     ],
   },

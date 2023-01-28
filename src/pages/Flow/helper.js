@@ -7,18 +7,18 @@ export const helper = [
     id: 1,
     title: "Attendance",
     img: img1,
-    navigation: 'attendance'
+    navigation: "attendance",
   },
   {
     id: 2,
     title: "Count work",
     img: img2,
-    navigation: 'countwork'
+    navigation: "count-work",
   },
   {
     id: 3,
     title: "OTK",
     img: img3,
-    navigation: 'otk'
+    navigation: "otk",
   },
 ];

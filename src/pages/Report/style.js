@@ -5,7 +5,6 @@ export const Wrapper = styled.div`
   flex-direction: column;
   align-items: center;
   row-gap: 40px;
-  padding-top: 40px;
 `;
 
 Wrapper.Title = styled.h1``;
