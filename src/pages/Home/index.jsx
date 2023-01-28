@@ -22,11 +22,11 @@ const Home = () => {
       </Wrapper.CardsContainer>
       <Wrapper.Title>Store and Report</Wrapper.Title>
       <Wrapper.CardsContainer>
-        <Card title={"Store"} img={store} onClick={() => navigate("report")} />
+        <Card title={"Store"} img={store} onClick={() => navigate("/store")} />
         <Card
           title={"Report"}
           img={report}
-          onClick={() => navigate("report")}
+          onClick={() => navigate("/report")}
         />
       </Wrapper.CardsContainer>
     </Wrapper>
