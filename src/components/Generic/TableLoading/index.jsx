@@ -1,8 +1,9 @@
-import { TableWrapper } from "../../../../components/Generic/Style";
+import { TableWrapper } from "../Style";
 import OrderedListOutlined from "@ant-design/icons/OrderedListOutlined";
 import Checkbox from "antd/lib/checkbox";
 import Button from "antd/lib/button";
-const Table = ({ data }) => {
+import Skeleton from "antd/lib/skeleton";
+const TableLoading = ({ count }) => {
   return (
     <TableWrapper>
       <TableWrapper.Table>
@@ -12,22 +13,24 @@ const Table = ({ data }) => {
               <OrderedListOutlined />
             </TableWrapper.Th>
             <TableWrapper.Th>
-              <Checkbox checked={data.isAllCome} />
+              <Checkbox disabled />
             </TableWrapper.Th>
             <TableWrapper.Th>Full Name</TableWrapper.Th>
             <TableWrapper.Th>action</TableWrapper.Th>
           </TableWrapper.Tr>
         </TableWrapper.Thead>
         <TableWrapper.Tbody>
-          {data?.data?.map((value, idx) => (
+          {Array.from({ length: count }).map((value, idx) => (
             <TableWrapper.Tr key={idx}>
               <TableWrapper.Td isFirst>{idx + 1}</TableWrapper.Td>
               <TableWrapper.Td>
-                <Checkbox checked={value.isCome} />
+                <Checkbox disabled />
               </TableWrapper.Td>
-              <TableWrapper.Td>{value.fullName}</TableWrapper.Td>
               <TableWrapper.Td>
-                <Button danger>Delete</Button>
+                <Skeleton.Input active size={"large"} />
+              </TableWrapper.Td>
+              <TableWrapper.Td>
+                <Button disabled>Delete</Button>
               </TableWrapper.Td>
             </TableWrapper.Tr>
           ))}
@@ -37,4 +40,4 @@ const Table = ({ data }) => {
   );
 };
 
-export { Table };
+export { TableLoading };

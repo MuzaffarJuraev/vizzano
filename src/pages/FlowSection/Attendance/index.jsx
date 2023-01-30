@@ -2,10 +2,10 @@ import React, { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import DatePicker from "../../../components/Generic/DatePicker";
 import Button from "antd/lib/button";
-import Spin from "antd/lib/spin";
 import { Wrapper } from "./style";
 import { Table } from "./Table";
 import { requests } from "../../../services/attendance";
+import { TableLoading } from "../../../components/Generic/TableLoading";
 
 const Attendance = () => {
   const navigate = useNavigate();
@@ -32,7 +32,7 @@ const Attendance = () => {
       <Wrapper.Title>Attendance</Wrapper.Title>
       <DatePicker prefixTime={prefixTimeState} dateChange={dateChangeHandler} />
       <Button type="primary">+add worker</Button>
-      {loading ? <Spin size="large" /> : <Table data={data} />}
+      {loading ? <TableLoading count={10} /> : <Table data={data} />}
       <Button
         style={{ margin: "50px 0" }}
         onClick={() =>
