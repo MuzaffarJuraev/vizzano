@@ -1,8 +1,15 @@
 import { TableWrapper } from "../../../../components/Generic/Style";
 import OrderedListOutlined from "@ant-design/icons/OrderedListOutlined";
-import Checkbox from "antd/lib/checkbox";
 import Button from "antd/lib/button";
-const Table = ({ data }) => {
+const Table = () => {
+  const data = [
+    {
+      _id: 1,
+      productName: "shim",
+      fake: 2,
+      things: 499,
+    },
+  ];
   return (
     <TableWrapper>
       <TableWrapper.Table>
@@ -11,21 +18,19 @@ const Table = ({ data }) => {
             <TableWrapper.Th isFirst>
               <OrderedListOutlined />
             </TableWrapper.Th>
-            <TableWrapper.Th>
-              <Checkbox checked={data.isAllCome} />
-            </TableWrapper.Th>
-            <TableWrapper.Th>Full Name</TableWrapper.Th>
-            <TableWrapper.Th>action</TableWrapper.Th>
+            <TableWrapper.Th>Products</TableWrapper.Th>
+            <TableWrapper.Th success>things</TableWrapper.Th>
+            <TableWrapper.Th danger>Fake</TableWrapper.Th>
+            <TableWrapper.Th>Actions</TableWrapper.Th>
           </TableWrapper.Tr>
         </TableWrapper.Thead>
         <TableWrapper.Tbody>
-          {data?.data?.map((value, idx) => (
+          {data?.map((value, idx) => (
             <TableWrapper.Tr key={idx}>
               <TableWrapper.Td isFirst>{idx + 1}</TableWrapper.Td>
-              <TableWrapper.Td>
-                <Checkbox checked={value.isCome} />
-              </TableWrapper.Td>
-              <TableWrapper.Td>{value.fullName}</TableWrapper.Td>
+              <TableWrapper.Td>{value.productName}</TableWrapper.Td>
+              <TableWrapper.Td success>{value.things}</TableWrapper.Td>
+              <TableWrapper.Td danger>{value.fake}</TableWrapper.Td>
               <TableWrapper.Td>
                 <Button danger>Delete</Button>
               </TableWrapper.Td>
