@@ -36,8 +36,8 @@ const DatePickerComponent = ({ prefixTime, dateChange }) => {
     });
   };
   const pickerChangeHandler = (date) => {
-    dateChange(new Date(date.$d).getTime());
     setShowDate(true);
+    dateChange(new Date(date.$d).getTime());
   };
   return (
     <Wrapper>
@@ -50,11 +50,10 @@ const DatePickerComponent = ({ prefixTime, dateChange }) => {
         </Wrapper.DateTitle>
       ) : (
         <DatePicker
-          open
+          open={!showDate}
           onSelect={pickerChangeHandler}
           disabledDate={(date) => {
             const antDate = new Date(date.$d);
-            console.log(date.$d);
             if (
               startingDate <= Number(antDate.getTime()) &&
               Number(antDate.getTime()) <=

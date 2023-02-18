@@ -1,42 +1,39 @@
 import axios from "axios";
-import { getToken, getBaseUrl } from "../utils/globalFunc";
+import { getBaseUrl, getToken } from "../utils/globalFunc";
+
 export const requests = {
-  getAllsMerchants: ({ idFlow, createDate }) =>
+  getOtk: (data) =>
     axios({
       method: "POST",
-      url: `${getBaseUrl()}/merchants`,
-      headers: {
-        Authorization: `Bearer ${getToken()}`,
-      },
-      data: {
-        flowType: idFlow,
-        createDate,
-      },
-    }),
-  updateMerchant: (data) =>
-    axios({
-      method: "POST",
-      url: `${getBaseUrl()}/merchants/update`,
+      url: `${getBaseUrl()}/otks`,
       headers: {
         Authorization: `Bearer ${getToken()}`,
       },
       data,
     }),
 
-  addMerchant: (data) =>
+  removeOtk: (data) =>
     axios({
       method: "POST",
-      url: `${getBaseUrl()}/merchants/create_user`,
+      url: `${getBaseUrl()}/otk/remove`,
       headers: {
         Authorization: `Bearer ${getToken()}`,
       },
       data,
     }),
-
-  removeMerchant: (data) =>
+  addOtk: (data) =>
     axios({
       method: "POST",
-      url: `${getBaseUrl()}/merchants/delete_user`,
+      url: `${getBaseUrl()}/otk/add_otk_product`,
+      headers: {
+        Authorization: `Bearer ${getToken()}`,
+      },
+      data,
+    }),
+  updateOtk: (data) =>
+    axios({
+      method: "POST",
+      url: `${getBaseUrl()}/otk/update`,
       headers: {
         Authorization: `Bearer ${getToken()}`,
       },

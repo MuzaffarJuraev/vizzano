@@ -1,8 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { getToken } from "../utils/globalFunc";
 
 const authSlice = createSlice({
   name: "auth",
-  initialState: { token: localStorage.getItem("token") },
+  initialState: { token: getToken() },
   reducers: {
     setToken(state, action) {
       state.token = action.payload.token;
